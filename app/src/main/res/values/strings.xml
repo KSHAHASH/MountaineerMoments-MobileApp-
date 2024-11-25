@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Mountaineer Moments</string>
+    <string name="prev_button">Prev</string>
+    <string name="next_button">Next</string>
+    <string name="already_at_first">You are already on the first moment.</string>
+    <string name="already_at_last">You are already on the last moment.</string>
+    <string name="moment_title_label">Title</string>
+    <string name="moment_title_hint">Enter a title for the moment.</string>
+    <string name="moment_description_label">Description</string>
+    <string name="moment_description_hint">Enter details of your visit here.</string>
+    <string name="moments_details_label">Details</string>
+    <string name="new_moment">New Moment</string>
+    <string name="delete_moment">Delete Moment</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="share">Share</string>
+    <string name="share_via">Share via...</string>
+    <string name="moments_pictures_label">Pictures</string>
+    <string name="share_with_api">Share with API</string>
+</resources>

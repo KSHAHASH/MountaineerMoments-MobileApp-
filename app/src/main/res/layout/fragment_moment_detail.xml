@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:text="@string/moment_title_label" />
+
+    <EditText
+        android:id="@+id/moment_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/moment_title_hint"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:text="@string/moment_description_label" />
+
+    <EditText
+        android:id="@+id/moment_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/moment_description_hint"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:text="@string/moments_details_label" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/moment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Wed November 20 2024"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/moment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="11:56 EST"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:text="@string/moments_pictures_label" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/picture_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
