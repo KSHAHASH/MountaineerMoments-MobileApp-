@@ -1,5 +1,6 @@
 package edu.appstate.cs.moments
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -33,7 +34,7 @@ class MomentHolder(
 
 class SharedMomentHolder(
     private val binding: ListItemSharedMomentBinding,
-    private val onSharedMomentClicked: (momentId: UUID) -> Unit // TODO: What should the type of this be?
+    private val onSharedMomentClicked: (moment: Moment) -> Unit // TODO: What should the type of this be?
 ) : MomentBaseHolder(binding) {
 
     override fun bind(moment: Moment) {
@@ -44,7 +45,7 @@ class SharedMomentHolder(
 
         binding.root.setOnClickListener {
             // TODO: What should we pass here?
-            onSharedMomentClicked(moment.id)
+            onSharedMomentClicked(moment)
         }
     }
 }
@@ -52,7 +53,7 @@ class SharedMomentHolder(
 class MomentsListAdapter(
     private val moments: List<Moment>,
     private val onMomentClicked: (momentId: UUID) -> Unit,
-    private val onSharedMomentClicked: (momentId: UUID) -> Unit
+    private val onSharedMomentClicked: (moment: Moment) -> Unit  // changes made here as well
 ) : RecyclerView.Adapter<MomentBaseHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MomentBaseHolder {
@@ -70,6 +71,7 @@ class MomentsListAdapter(
 
     override fun onBindViewHolder(holder: MomentBaseHolder, position: Int) {
         val moment = moments[position]
+        Log.d("MomentsListAdapter", "Binding moment at position $position: $moment")
         if (holder is SharedMomentHolder) {
             holder.bind(moment)
         } else {

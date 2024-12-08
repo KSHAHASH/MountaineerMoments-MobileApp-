@@ -34,10 +34,10 @@ class MomentsListFragment: Fragment() {
         )
     }
 
-    private val goToSharedMoment = { momentId: UUID ->
+    private val goToSharedMoment = { moment: Moment->
         // TODO: Where should this go?
         findNavController().navigate(
-            MomentsListFragmentDirections.showMomentDetail(momentId)
+            MomentsListFragmentDirections.showSharedMomentDetail(moment)
         )
     }
 
@@ -62,10 +62,16 @@ class MomentsListFragment: Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 momentsListViewModel.uiState.collect { uiState ->
+
+                    //combining regular and shared moments
+                    val allMoments = uiState.moments + uiState.sharedMoments
+
                     binding.momentsRecyclerView.adapter = MomentsListAdapter(
-                        uiState.moments, // TODO: What about shared moments?
+                        allMoments, // TODO: What about shared moments?
                         goToRegularMoment,
                         goToSharedMoment)
+
+
                 }
             }
         }

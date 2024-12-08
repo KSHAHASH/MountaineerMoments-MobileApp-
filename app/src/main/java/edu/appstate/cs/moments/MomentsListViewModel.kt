@@ -20,6 +20,8 @@ class MomentsListViewModel() : ViewModel() {
     val uiState: StateFlow<MomentsListUiState>
         get() = _uiState.asStateFlow()
 
+
+
     init {
         viewModelScope.launch {
             momentsRepository.getMoments().collect {
@@ -33,7 +35,20 @@ class MomentsListViewModel() : ViewModel() {
 
         viewModelScope.launch {
             try {
-                // TODO: This is a good place to load the moments using the API
+               //todo
+                Log.d(TAG, "Starting to fetch moments from API")
+                val fetchedMoments = sharingRepository.shareMomentsList()
+                    .map { it.copy(fromAPI = true) }
+
+                _uiState.update { oldState ->
+                    oldState.copy(sharedMoments = fetchedMoments)
+                }
+
+                //logging fetched shared moments
+                fetchedMoments.forEach{moment ->
+                    Log.d("Fetched Moments", "Fetched items: $moment")
+                }
+
             } catch (ex: Exception) {
                 Log.e(TAG, "Failed to load moments list from API", ex)
             }

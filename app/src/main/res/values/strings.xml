@@ -16,4 +16,7 @@
     <string name="share_via">Share via...</string>
     <string name="moments_pictures_label">Pictures</string>
     <string name="share_with_api">Share with API</string>
+    <string name="posted_name">Posted By</string>
+    <string name="posted_hint">Your Name Here</string>
+    <string name="image_desc">Description of the image</string>
 </resources>

@@ -18,6 +18,9 @@ class MomentDetailViewModel(momentId: UUID): ViewModel() {
     private val _moment: MutableStateFlow<Moment?> = MutableStateFlow(null)
     val moment: StateFlow<Moment?> = _moment.asStateFlow()
 
+//    private val _imageUrls: MutableStateFlow<List<String>> = MutableStateFlow(emptyList())
+//    val imageUrls: StateFlow<List<String>> = _imageUrls.asStateFlow()
+
     init {
         viewModelScope.launch {
             _moment.value = momentsRepository.getMoment(momentId)
